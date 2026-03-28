@@ -1,0 +1,242 @@
+/* ── Global Reset & Base ─────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0e27 0%, #1a2a4a 60%, #0d1a30 100%);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  color: #e8eaf6;
+}
+
+/* ── Three-Column Layout ─────────────────────────────────────── */
+.app-container {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+  gap: 16px;
+  padding: 16px;
+  align-items: flex-start;
+}
+
+.column {
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  padding: 16px;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* ── Left Column (History) ───────────────────────────────────── */
+.history-column {
+  width: 250px;
+  flex-shrink: 0;
+}
+
+.history-column h2 {
+  font-size: 1rem;
+  margin-bottom: 12px;
+  color: #90caf9;
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
+.history-item {
+  margin-bottom: 12px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.history-item img {
+  width: 100%;
+  height: 90px;
+  object-fit: cover;
+  display: block;
+}
+
+.history-item p {
+  font-size: 0.7rem;
+  padding: 6px 8px;
+  color: #b0bec5;
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── Center Column (Main Stage) ──────────────────────────────── */
+.center-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.app-header {
+  text-align: center;
+}
+
+.app-header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #90caf9, #e1f5fe, #4fc3f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: 0.85rem;
+  color: #78909c;
+  margin-top: 4px;
+}
+
+.error-banner {
+  width: 100%;
+  background: rgba(211, 47, 47, 0.3);
+  border: 1px solid #ef5350;
+  border-radius: 8px;
+  padding: 10px 16px;
+  color: #ef9a9a;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.main-stage {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  min-height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.main-image {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+}
+
+.placeholder {
+  color: #546e7a;
+  font-size: 1rem;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+/* ── Tags Grid (2 × 2) ───────────────────────────────────────── */
+.tags-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  width: 100%;
+}
+
+.tag-btn {
+  background: rgba(79, 195, 247, 0.15);
+  border: 1px solid rgba(79, 195, 247, 0.4);
+  border-radius: 8px;
+  color: #e1f5fe;
+  padding: 10px 8px;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, transform 0.1s;
+  text-align: center;
+  word-break: break-word;
+}
+
+.tag-btn:hover {
+  background: rgba(79, 195, 247, 0.3);
+  border-color: #4fc3f7;
+  transform: translateY(-1px);
+}
+
+.tag-btn.banned {
+  background: rgba(239, 83, 80, 0.2);
+  border-color: rgba(239, 83, 80, 0.5);
+  color: #ef9a9a;
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+/* ── Discover Button ─────────────────────────────────────────── */
+.discover-btn {
+  padding: 14px 40px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #1565c0, #0288d1);
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s;
+  box-shadow: 0 4px 20px rgba(2, 136, 209, 0.4);
+  letter-spacing: 0.04em;
+}
+
+.discover-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(2, 136, 209, 0.55);
+}
+
+.discover-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ── Right Column (Ban List) ─────────────────────────────────── */
+.banlist-column {
+  width: 250px;
+  flex-shrink: 0;
+}
+
+.banlist-column h2 {
+  font-size: 1rem;
+  margin-bottom: 12px;
+  color: #ef9a9a;
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
+.ban-item {
+  display: block;
+  width: 100%;
+  margin-bottom: 8px;
+  background: rgba(239, 83, 80, 0.15);
+  border: 1px solid rgba(239, 83, 80, 0.4);
+  border-radius: 8px;
+  color: #ffcdd2;
+  padding: 8px 10px;
+  font-size: 0.82rem;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s, border-color 0.2s;
+  word-break: break-word;
+}
+
+.ban-item:hover {
+  background: rgba(239, 83, 80, 0.3);
+  border-color: #ef5350;
+}
+
+/* ── Empty Hints ─────────────────────────────────────────────── */
+.empty-hint {
+  font-size: 0.78rem;
+  color: #546e7a;
+  text-align: center;
+  line-height: 1.5;
+}
