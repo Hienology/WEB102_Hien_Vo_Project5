@@ -2,7 +2,8 @@ import { useState } from 'react';
 import aviationTopics from './aviationTopics';
 import './App.css';
 
-const UNSPLASH_ACCESS_KEY = import.meta.env.VITE_UNSPLASH_ACCESS_KEY || 'YOUR_UNSPLASH_ACCESS_KEY';
+const LOCAL_UNSPLASH_ACCESS_KEY = typeof window !== 'undefined' ? window.__UNSPLASH_ACCESS_KEY__ : '';
+const UNSPLASH_ACCESS_KEY = LOCAL_UNSPLASH_ACCESS_KEY || import.meta.env.VITE_UNSPLASH_ACCESS_KEY || 'YOUR_UNSPLASH_ACCESS_KEY';
 const MAX_TAGS = 4;
 const MAX_HISTORY_ITEMS = 4;
 
