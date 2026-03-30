@@ -9,7 +9,12 @@
 
 body {
   min-height: 100vh;
-  background: linear-gradient(135deg, #0a0e27 0%, #1a2a4a 60%, #0d1a30 100%);
+  background: linear-gradient(135deg, rgba(10, 14, 39, 0.9) 0%, rgba(26, 42, 74, 0.9) 60%, rgba(13, 26, 48, 0.9) 100%),
+    url('https://assets.skiesmag.com/wp-content/uploads/2024/03/yvr_airport_aug_4_2020.jpg'); /* place your image in public/background.jpg */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay; /* blend overlay with photo instead of stacking */
   font-family: 'Segoe UI', system-ui, sans-serif;
   color: #e8eaf6;
 }
@@ -21,7 +26,7 @@ body {
   min-height: 100vh;
   gap: 16px;
   padding: 16px;
-  align-items: flex-start;
+  align-items: stretch; /* stretch columns to full available height */
 }
 
 .column {
@@ -30,12 +35,15 @@ body {
   padding: 16px;
   backdrop-filter: blur(6px);
   border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  flex-direction: column;
 }
 
 /* ── Left Column (History) ───────────────────────────────────── */
 .history-column {
   width: 250px;
   flex-shrink: 0;
+  justify-content: center; /* center history content vertically */
 }
 
 .history-column h2 {
@@ -87,7 +95,7 @@ body {
 .app-header h1 {
   font-size: 1.8rem;
   font-weight: 700;
-  background: linear-gradient(90deg, #90caf9, #e1f5fe, #4fc3f7);
+  background: linear-gradient(90deg, #3a5a8f, #5673a6, #2c4470);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -95,7 +103,8 @@ body {
 
 .subtitle {
   font-size: 0.85rem;
-  color: #78909c;
+  color: #d6e4ff;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
   margin-top: 4px;
 }
 
@@ -202,6 +211,7 @@ body {
 .banlist-column {
   width: 250px;
   flex-shrink: 0;
+  justify-content: center; /* center ban list content vertically */
 }
 
 .banlist-column h2 {
