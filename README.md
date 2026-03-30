@@ -72,3 +72,14 @@ src/
 - **API Integration & Filtering** – Unsplash REST API with client-side ban-collision detection
 - **Recursive Fetching** – `fetchRandomImage` calls itself when a banned tag is detected
 - **Responsive Layout** – 3-column Flexbox (250px | flex-grow | 250px)
+
+---
+
+## 🎥 Demo GIF
+
+- Place your preview GIF in the [public](public) folder (e.g., `public/demo.gif`) so Vite serves it at `/demo.gif`.
+- After adding it, you can embed it here:
+
+```markdown
+![App preview](public/demo.gif)
+```
